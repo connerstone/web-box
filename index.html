@@ -1,83 +1,9 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<!-- <link rel="stylesheet" type="text/css" href="./css/bootstrap.css"> -->
-
-<title>JSON Formatter</title>
-</head>
-<body>
-
-
-<div class="container mt-5">
-    <div class="row">
-      <!-- <div class="col-md-10"> -->
-        <h2> JSON Formatter </h2>
-        <div className="col-md-6 offset-md-3">
-            <textarea 
-                id="json-input" 
-                class="form-control" 
-                rows="10"
-                placeholder="input json text"
-            ></textarea> 
-                
-            <br />
-            
-            <textarea 
-                id="json-output" 
-                class="form-control" 
-                rows="10"
-                placeholder="input json format appear here..."
-            ></textarea>
-        </div>
-
-        <textarea class="large-area large-area--input" placeholder="Enter your JSON here...">
-            {"name": "Dom"}
-        </textarea>
-  <div class="controls">
-    <button type="button" class="controls__button controls__button--format">Format</button>
-    <button type="button" class="controls__button controls__button--minify">Minify</button>
-  </div>
-  <textarea readonly class="large-area large-area--output" placeholder="Your JSON will appear here..."></textarea>
-      <!-- </div> -->
-    </div>
-</div>
-
-
-<script>
-var input = document.getElementById("json-input");
-var output = document.getElementById("json-output");
-
-input.addEventListener("input", function() {
-  try {
-    // var json = JSON.parse(input.value);
-    // output.innerText = JSON.stringify(json, null, 4);
-    output.innerText = JSON.stringify(JSON.parse(input.value), null, 4);
-  } catch (e) {
-    output.innerText = "Invalid JSON";
-  }
-});
-
-const inputArea = document.querySelector(".large-area--input");
-const outputArea = document.querySelector(".large-area--output");
-const btnFormat = document.querySelector(".controls__button--format");
-const btnMinify = document.querySelector(".controls__button--minify");
-
-btnFormat.addEventListener("click", () => {
-  const formatted = JSON.stringify(JSON.parse(inputArea.value), null, 4);
-
-  outputArea.value = formatted;
-});
-
-btnMinify.addEventListener("click", () => {
-  const minified = JSON.stringify(JSON.parse(inputArea.value));
-
-  outputArea.value = minified;
-});
-
-</script>
-<!-- <script type="text/javascript" src="./js/bootstrap.js"></script> -->
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <title> WEB BOX </title>
+  </head>
+  <body>
+  </body>
 </html>

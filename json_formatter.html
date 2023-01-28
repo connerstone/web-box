@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="./css/sideMenu.css">
+<title>WEB BOX: JSON Formatter</title>
+</head>
+<body>
+<div class="d-flex">
+    <nav class="bg-light border-right" id="side-menu">
+      <div class="sidebar-header text-center">
+        <h3>WEB BOX</h3>
+      </div>
+      <ul class="list-group">
+        <li class="list-group-item">
+          <a href="#">JSON Formatter</a>
+        </li>
+        <!-- <li class="list-group-item"> -->
+          <!-- <a href="#">Link 2</a> -->
+        <!-- </li> -->
+      </ul>
+    </nav>
+    <div class="container-fluid p-5">
+    </div>
+  </div>
+
+<div class="container pl-4">
+    <h1 class="pb-4"> JSON Formatter </h1>
+    <textarea
+        id="json-input"
+        class="form-control"
+        placeholder="Enter your JSON here..."
+        rows="14"
+    >
+        {"test": 123}
+    </textarea>
+
+    <div class="p-2 d-flex justify-content-center">
+        <button 
+            type="button" 
+            id="json-format-btn"
+            class="btn btn-dark">
+            Format
+        </button> 
+        <p class="p-2"> </p>
+        <button 
+            type="button" 
+            id="json-minify-btn"
+            class="btn btn-dark">
+            Minify
+        </button>
+    </div>
+    
+    <textarea readonly 
+        id="json-output"
+        class="form-control"
+        rows="14"
+        placeholder="Your JSON will appear here..."
+    ></textarea>
+</div>
+<script>
+var inputArea = document.getElementById("json-input");
+var outputArea = document.getElementById("json-output");
+var btnFormat = document.getElementById("json-format-btn");
+var btnMinify = document.getElementById("json-minify-btn");
+
+btnFormat.addEventListener("click", () => {
+    try {
+        outputArea.value = JSON.stringify(JSON.parse(inputArea.value), null, 4);
+    } catch(e) {
+        console.log(e);
+        outputArea.innerText = "Invalid JSON";
+    }
+});
+
+btnMinify.addEventListener("click", () => {
+    try {
+        outputArea.value = JSON.stringify(JSON.parse(inputArea.value));
+    } catch(e) {
+        console.log(e);
+        outputArea.innerText = "Invalid JSON";
+    }
+});
+</script>
+<!-- <script type="text/javascript" src="./js/bootstrap.js"></script> -->
+</body>
+</html>
