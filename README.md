@@ -1,9 +1,3 @@
-# json-formatter
-JSON Formatter
+# WEB BOX
+> Make website using ChatGPT
 
---------------------------------------------------------------------
-
-## Ref.
-- JSON Formatter
-    - https://codepen.io/dcode-software/pen/ZEJWJZj
-    - https://youtu.be/s38oGpnnQo8
