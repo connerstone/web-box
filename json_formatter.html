@@ -1,25 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
-<link rel="stylesheet" type="text/css" href="./css/sideMenu.css">
-<title>WEB BOX: JSON Formatter</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta lang="en" name="description" content="JSON Formatter & Validator beautifies and validation">
+  <meta lang="en" name="keywords" content="JSON Formatter & Validator,JSON Validator,JSON Formatter,JSON Format,Debug JSON,Pretty Print JSON,Validate JSON,JSON Pretty Printer,JSON Beautifier,Beautify JSON">
+  <meta name="author" content="covenant">
+  <title>WEB BOX: JSON Formatter</title>
+  <link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="./css/sideMenu.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MSDPWRHW2D"></script>
+  <script>hljs.highlightAll();</script>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MSDPWRHW2D"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <style>
+    textarea[is="highlighted-code"] { padding: 8px; }
+    textarea {
+      background-color: rgb(13, 17, 23) !important;
+    }
+  </style>
+  <script type="module">
+    (async ({chrome, netscape}) => {
+    
+      // add Safari polyfill if needed
+      if (!chrome && !netscape)
+        await import('https://unpkg.com/@ungap/custom-elements');
+    
+      const {default: HighlightedCode} =
+        await import('https://unpkg.com/highlighted-code');
+    
+      // bootstrap a theme through one of these names
+      // https://github.com/highlightjs/highlight.js/tree/main/src/styles
+      HighlightedCode.useTheme('github-dark');
+    })(self);
+  </script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'G-MSDPWRHW2D');
-</script>
+      gtag('config', 'G-MSDPWRHW2D');
+  </script>
 </head>
 <body>
+  
 <div class="d-flex">
-    <nav class="bg-light border-right" id="side-menu">
+     <nav class="bg-light border-right" id="side-menu"> 
       <div class="sidebar-header text-center">
         <h3>WEB BOX</h3>
       </div>
@@ -27,19 +55,18 @@
         <li class="list-group-item">
           <a href="#">JSON Formatter</a>
         </li>
-        <!-- <li class="list-group-item"> -->
-          <!-- <a href="#">Link 2</a> -->
-        <!-- </li> -->
       </ul>
-    </nav>
+    </nav> 
     <div class="container-fluid p-5">
     </div>
-  </div>
+</div>
+
 
 <div class="container pl-4">
     <h1 class="pb-4"> JSON Formatter </h1>
     <textarea
         id="json-input"
+        is="highlighted-code"
         class="form-control"
         placeholder="Enter your JSON here..."
         rows="14"
@@ -65,6 +92,7 @@
     
     <textarea readonly 
         id="json-output"
+        is="highlighted-code"
         class="form-control"
         rows="14"
         placeholder="Your JSON will appear here..."
